@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Public route for user registration
@@ -45,4 +46,13 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
     Route::get('/document/{id}', [DocumentController::class, 'show']);    // Show a specific document
     Route::put('/document/{id}', [DocumentController::class, 'update']);   // Update a specific document
     Route::delete('/document/{id}', [DocumentController::class, 'destroy']); // Delete a specific document
+
+
+    // user
+
+    Route::get('/user', [UserController::class, 'index']); // Get all users
+Route::post('/user', [UserController::class, 'store']); // Create new user
+Route::get('/user/{id}', [UserController::class, 'show']); // Get a single user
+Route::put('/user/{id}', [UserController::class, 'update']); // Update user
+Route::delete('/user/{id}', [UserController::class, 'destroy']); // Delete
 });

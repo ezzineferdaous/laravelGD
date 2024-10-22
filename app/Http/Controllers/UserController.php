@@ -12,10 +12,10 @@ class UserController extends Controller
 {
     // List all users
     public function index()
-    {
-        $users = User::with(['role', 'documents'])->get(); // Eager load relationships
-        return response()->json($users);
-    }
+{
+    $users = User::with(['role', 'documents'])->get(); // Eager load relationships
+    return response()->json($users);
+}
 
     // Show a specific user
     public function show($id)

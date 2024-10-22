@@ -17,13 +17,16 @@ class User extends Authenticatable // Extend the correct class
     protected $table = 'users'; // Specify the table if not default
 
     protected $fillable = [
-        'username', 'email', 'password', 'role_id', 'tel'
+        'username',
+        'email',
+        'password',
+        'role_id',
+        'tel',
     ];
 
     // Relationship with Role
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
     // Relationship with Documents

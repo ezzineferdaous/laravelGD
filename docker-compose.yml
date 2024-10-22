@@ -1,0 +1,20 @@
+services:
+  app:
+    image: php:8.3-apache
+    container_name: gestiondocumentLaravel
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf  # Ensure this is a file
+    ports:
+      - "5173:80"
+    networks:
+      - gestiondocument
+    command: /bin/bash -c "apache2-foreground"
+
+networks:
+  gestiondocument:
+    external: true
+
+volumes:
+  gestiondocument_data: 
