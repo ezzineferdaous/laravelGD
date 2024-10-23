@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Route;
 // Public route for user registration
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout']);
+
 
 
  Route::middleware('auth:sanctum')->group(function () {
@@ -36,7 +37,7 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
     Route::delete('/categories/{id_category}', [CategoriesController::class, 'destroy']);
 
     // Roles
-    Route::get('/roles', [RoleController::class, 'index']);
+    Route::get('/roles', action: [RoleController::class, 'index']);
     Route::post('/roles', [RoleController::class, 'store']);
     Route::delete('/roles/{id}', [RoleController::class, 'destroy']);
 
